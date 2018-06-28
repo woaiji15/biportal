@@ -149,5 +149,5 @@ STATIC_URL = '/static/'
 
 # Crontab
 CRONJOBS = [
-    ('*/1 * * * *', 'mdm.cron.test', '>>/home/test.log')
+    ('* * * */1 *', 'mdm.cron.test', '>>/home/test.log')
 ]
