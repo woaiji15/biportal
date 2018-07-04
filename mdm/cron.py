@@ -1,6 +1,4 @@
 
-#!/usr/bin/python
-# -*- coding: UTF-8 -*-
 
 '''
 @Author Feng ZHAO
@@ -23,6 +21,8 @@ class Pxb():
         self.utils = Utils()
 
         self.serializers = serializers
+
+    #Main function for post company, org, employee to 91PXB
     def main(self):
 
         accessTokenUrl = 'http://www.91pxb.com/api/AccessToken/Get'
@@ -49,13 +49,15 @@ class Pxb():
             print(accessToken['err'] + accessToken['data'])
         
 
-        
+    #Get 91PXB access token    
     def getPxbAccessToken(self, url, post, header):
         return self.utils.apiCall(url, post, header)
 
+    #Post company to 91PXB
     def updateRootCompany(self, url, post, header):
         return self.utils.apiCall(url, post, header)
 
+    #Get company from MDM db
     def getRootCompany(self):
         companies = self.company.objects.filter(status=2).values('code', 'name')
 
@@ -64,17 +66,17 @@ class Pxb():
 
 class Utils():
     
+    #Using python urllib to get or post 
     def apiCall(self, url, post, header):
         import urllib.request
         import urllib.parse
-        #post = json.dumps(post)
         post = self.json(post, 'encode')
         post = bytes(post,'utf8')
         request = urllib.request.Request(url, post, header)
         result = urllib.request.urlopen(request).read()
-        #return json.loads(result)
         return self.json(result, 'decode')
     
+    #Json dumps and loads
     def json(self, data, jsonType):
         import json
         if (jsonType == 'encode'):
