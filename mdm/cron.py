@@ -13,6 +13,7 @@ ChangeLog
 
 class Pxb():
 
+    #Construction function
     def __init__(self):
         from mdm.models import Company 
 
