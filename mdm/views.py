@@ -36,6 +36,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
     serializer_class = CompanySerializer
 
     #mdm/companies/21/changeName/?newName=xxxx
+    '''
     @detail_route()
     def changeName(self, request, *args, **kwargs):
         get = request.GET
@@ -52,7 +53,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
         return Response(serializer.data)
 
-	
+    '''	
 class DepartmentViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.

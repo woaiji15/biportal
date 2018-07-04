@@ -41,7 +41,7 @@ class CompanySerializer(serializers.HyperlinkedModelSerializer):
     '''
     class Meta:
         model = Company 
-        fields = ('url', 'id', 'key', 'code', 'name', 'short_name', 'parent_company_key', 'head_of_company_key', 'status','created_job','created_tr','created_date')
+        fields = ('id', 'key', 'code', 'name', 'short_name', 'parent_company_key', 'head_of_company_key', 'status','created_job','created_tr','created_date')
 		
 class DepartmentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
