@@ -15,12 +15,10 @@ class Pxb():
 
     def __init__(self):
         from mdm.models import Company 
-        from django.core import serializers
 
         self.company = Company
         self.utils = Utils()
 
-        self.serializers = serializers
 
     #Main function for post company, org, employee to 91PXB
     def main(self):
